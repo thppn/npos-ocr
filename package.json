@@ -1,6 +1,6 @@
 {
   "name": "npos-tesseract",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An OCR tool for npos using tesseract engine",
   "homepage": "",
   "author": {
@@ -50,7 +50,7 @@
     "gulp-plumber": "^1.1.0",
     "jimp": "^0.2.21",
     "mocha": "^2.4.5",
-    "npos": "0.0.4"
+    "npos": "^0.0.5"
   },
   "eslintConfig": {
     "extends": "xo-space",
