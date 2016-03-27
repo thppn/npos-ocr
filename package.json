@@ -23,7 +23,7 @@
     "recognize"
   ],
   "publishConfig": {
-    "registry": "http://npm.dolink.co"
+    "registry": "http://registry.npmjs.com"
   },
   "dependencies": {
     "async": "^2.0.0-rc.2",
