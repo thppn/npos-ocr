@@ -10,13 +10,13 @@ var raster = npos.codecs.raster;
 
 var ocr = require('..').ocr;
 
-var imageFile = path.join(__dirname, 'fixtures', 'sample.png');
+var imageFile = path.join(__dirname, 'fixtures', 'receipt.png');
 var rasterFile = path.join(__dirname, 'fixtures', 'raster.bin');
 
 describe('ocr', function () {
   this.timeout(5000);
 
-  it('should ocr using local png file path', function () {
+  it('should ocr using local image file path', function () {
     return ocr(imageFile).then(function (text) {
       assert.ok(text);
       assert.include(text, '单号');
