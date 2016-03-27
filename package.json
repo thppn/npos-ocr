@@ -1,6 +1,6 @@
 {
   "name": "npos-tesseract",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An OCR tool for npos using tesseract engine",
   "homepage": "",
   "author": {
