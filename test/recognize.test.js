@@ -3,8 +3,7 @@
 var assert = require('chai').assert;
 var fs = require('fs');
 var path = require('path');
-var Promise = require('bluebird');
-var Jimp = Promise.promisifyAll(require('jimp'));
+var Jimp = require('jimp');
 var npos = require('npos');
 var raster = npos.codecs.raster;
 
@@ -23,10 +22,12 @@ describe('recognize', function () {
     });
   });
 
-  it('should recognize using png image', function () {
-    return Jimp.readAsync(imageFile).then(recognize).then(function (text) {
-      assert.ok(text);
-      assert.include(text, '单号');
+  it('should recognize using png image', function (done) {
+    Jimp.read(imageFile, function (err, image) {
+      recognize(image).then(function (text) {
+        assert.ok(text);
+        assert.include(text, '单号');
+      }).asCallback(done);
     });
   });
 

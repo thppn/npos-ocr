@@ -1,5 +1,5 @@
 {
-  "name": "npos-tesseract",
+  "name": "npos-ocr",
   "version": "0.0.3",
   "description": "An OCR tool for npos using tesseract engine",
   "homepage": "",
@@ -26,12 +26,7 @@
     "registry": "http://registry.npmjs.com"
   },
   "dependencies": {
-    "async": "^2.0.0-rc.2",
-    "bluebird": "^3.3.4",
-    "debug": "^2.2.0",
-    "fs-extra": "^0.26.7",
     "lodash": "^4.6.1",
-    "node-ramdisk": "^1.2.2",
     "tessocr": "^0.0.4",
     "proback": "^1.0.3"
   },
@@ -58,7 +53,7 @@
       "mocha": true
     }
   },
-  "repository": "taoyuan/npos-tesseract",
+  "repository": "taoyuan/npos-ocr",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
