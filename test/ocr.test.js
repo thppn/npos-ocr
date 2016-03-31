@@ -7,37 +7,37 @@ var Jimp = require('jimp');
 var npos = require('npos');
 var raster = npos.codecs.raster;
 
-var recognize = require('..').recognize;
+var ocr = require('..').ocr;
 
 var imageFile = path.join(__dirname, 'fixtures', 'receipt.png');
 var rasterFile = path.join(__dirname, 'fixtures', 'raster.bin');
 
-describe('recognize', function () {
+describe('ocr', function () {
   this.timeout(5000);
 
-  it('should recognize using local image file path', function () {
-    return recognize(imageFile).then(function (text) {
+  it('should ocr using local image file path', function () {
+    return ocr(imageFile).then(function (text) {
       assert.ok(text);
       assert.include(text, '单号');
     });
   });
 
-  it('should recognize using png image', function (done) {
+  it('should ocr using png image', function (done) {
     Jimp.read(imageFile, function (err, image) {
-      recognize(image).then(function (text) {
+      ocr(image).then(function (text) {
         assert.ok(text);
         assert.include(text, '单号');
       }).asCallback(done);
     });
   });
 
-  it('should recognize with npos BitImage', function () {
+  it('should ocr with npos BitImage', function () {
     var image = npos.bitimage();
     var i = fs.readFileSync(rasterFile);
     for (i = raster.decode(i); i; i = raster.decode(i)) {
       image.append(i);
     }
-    return recognize(image).then(function (text) {
+    return ocr(image).then(function (text) {
       assert.ok(text);
       assert.include(text, '单号');
     });

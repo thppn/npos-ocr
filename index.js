@@ -1,3 +1,3 @@
 'use strict';
 
-exports.recognize = require('./lib/recognize');
+exports.ocr = require('./lib/ocr');
