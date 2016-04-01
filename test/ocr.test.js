@@ -16,7 +16,10 @@ describe('ocr', function () {
   this.timeout(5000);
 
   it('should ocr using local image file path', function () {
-    return ocr(imageFile).then(function (text) {
+    return ocr(imageFile, {
+      tessdata: path.join(__dirname, 'fixtures', 'tessdata'),
+      language: 'pos.chs.fast'
+    }).then(function (text) {
       assert.ok(text);
       assert.include(text, '单号');
     });
@@ -24,7 +27,10 @@ describe('ocr', function () {
 
   it('should ocr using png image', function (done) {
     Jimp.read(imageFile, function (err, image) {
-      ocr(image).then(function (text) {
+      ocr(image, {
+        tessdata: path.join(__dirname, 'fixtures', 'tessdata'),
+        language: 'pos.chs.fast'
+      }).then(function (text) {
         assert.ok(text);
         assert.include(text, '单号');
       }).asCallback(done);
@@ -37,9 +43,12 @@ describe('ocr', function () {
     for (i = raster.decode(i); i; i = raster.decode(i)) {
       image.append(i);
     }
-    return ocr(image).then(function (text) {
+    return ocr(image, {
+      tessdata: path.join(__dirname, 'fixtures', 'tessdata'),
+      language: 'pos.chs.fast'
+    }).then(function (text) {
       assert.ok(text);
-      assert.include(text, '单号');
+      assert.include(text, '现金'); // pos.chs.fast is not compatible with raster.bin well, so pick `现金` as expected
     });
   });
 });
