@@ -1,4 +1,7 @@
 # npos-ocr [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/taoyuan/npos-ocr.svg)](https://greenkeeper.io/)
+
 > An OCR tool for npos using tesseract engine
 
 ## Installation
